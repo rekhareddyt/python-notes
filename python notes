@@ -1,3 +1,4 @@
+
 print("hi",end=' ')
 print("Hello")
 
@@ -158,6 +159,150 @@ for i in range(0,3):
   for j in range(i+1):
     print("*",end='')
   print()
+
+
+def power(n,x):
+  if(x==0):
+    return 1
+  else:
+    return (n*power(n,x-1))
+power(2,3)
+
+
+def sum(n):
+  if(n==0):
+    return 0
+  elif(n==1):
+    return 1
+  else:
+    return(n+sum(n-1))
+sum(3)
+
+
+l=[5,2,3,4,7]
+n=len(l)
+s=True
+while(s):
+  for i in range(0,n):
+    s=False
+    for j in range(0,n-1):
+      if(l[j]>l[j+1]):
+        l[j],l[j+1]=l[j+1],l[j]
+        s=True
+print(l)
+
+l=[10,20,30,33]
+k=43
+n=len(l)
+for i in range(0,n):
+  for j in range(i+1,n):
+    if((l[i]+l[j])==k):
+      print(l[i],l[j])
+
+l=[10,20,30,33]
+k=30
+n=len(l)
+for i in l:
+  d=k-i
+  if(d in l):
+    print(i,d)
+
+l=[10,20,30,33]
+k=43
+n=len(l)
+i=0
+j=n-1
+s=True
+while(i<j):
+  if((l[i]+l[j])>k):
+    j=j-1
+  elif((l[i]+l[j])<k):
+    i=i+1
+  else:
+    print(l[i],l[j])
+    i=i+1
+    j=j-1
+
+class Person:
+  def __init__(a, name, age):
+    a.name = name
+    a.age = age
+
+p1 = Person("John", 36)
+
+print(p1.name)
+print(p1.age)
+
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+class Student(Person):
+  def __init__(self, fname, lname, year):
+    super().__init__(fname, lname)
+    self.graduationyear = year
+
+  def welcome(self):
+    print("Welcome", self.firstname, self.lastname, "to the class of", self.graduationyear)
+
+x = Student("Mike", "Olsen", 2019)
+x.welcome()
+
+
+
+class Vehicle:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Move!")
+
+class Car(Vehicle):
+  pass
+
+class Boat(Vehicle):
+  def move(self):
+    print("Sail!")
+
+class Plane(Vehicle):
+  def move(self):
+    print("Fly!")
+
+car1 = Car("Ford", "Mustang") #Create a Car object
+boat1 = Boat("Ibiza", "Touring 20") #Create a Boat object
+plane1 = Plane("Boeing", "747") #Create a Plane object
+
+for x in (car1, boat1, plane1):
+  print(x.brand)
+  print(x.model)
+  x.move()
+
+
+from abc import ABC, abstractmethod
+class Car(ABC):
+    def mileage(self):
+        pass
+
+    def mileage2(self):
+      print("Concrerte method of abstract claass")
+
+class Tesla(Car):
+    def mileage(self):
+        print("The mileage is 30kmph")
+
+
+# Driver code
+# c=Car() , Error
+t=Tesla()
+t.mileage2()
+
+
+
 
 
 
